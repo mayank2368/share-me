@@ -6,6 +6,9 @@ import shareVideo from "../../assets/share.mp4";
 import logo from "../../assets/share.mp4";
 
 const Login = () => {
+  const responseGoogle = (response) => {
+    console.log(response);
+  };
   return (
     <div className="w-4 scrollbar-hide">
       <div className="relative w-full h-full">
@@ -25,15 +28,20 @@ const Login = () => {
 
           <div className="shadow-2xl">
             <GoogleLogin
-              clientId=""
-              render={(renderprops) => (
+              clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
+              render={(renderProps) => (
                 <button
                   className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
+                  onClick={renderProps.onClick}
+                  //disabled={renderProps.disabled}
                   type="button"
                 >
                   <FcGoogle className="mr-4" /> Sign in with Google
                 </button>
               )}
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy="single_host_origin"
             />
           </div>
         </div>
