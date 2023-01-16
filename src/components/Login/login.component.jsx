@@ -33,7 +33,7 @@ const Login = () => {
                 <button
                   className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
                   onClick={renderProps.onClick}
-                  //disabled={renderProps.disabled}
+                  disabled={renderProps.disabled}
                   type="button"
                 >
                   <FcGoogle className="mr-4" /> Sign in with Google
